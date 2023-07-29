@@ -1,4 +1,3 @@
-// apollo.config.js
 module.exports= {
     client: {
       service: {
@@ -12,4 +11,5 @@ module.exports= {
         'src/**/*.ts',
       ],
     },
+    
   }
