@@ -3,6 +3,7 @@ import { DefaultApolloClient } from '@vue/apollo-composable'
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 import router from './routes/routes'
 import App from './App.vue'
+import store from './store'
 import './style.css'
 
 // HTTP connection to the API
@@ -29,6 +30,7 @@ const app = createApp({
 
 app
 .use(router)
+.use(store)
 .mount('#app')
 // createApp(App)
 // .use(router)
