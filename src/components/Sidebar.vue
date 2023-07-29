@@ -1,3 +1,5 @@
 <template>
-    <aside>soy el sidebar</aside>
+    <aside>
+        <h1 class="text-cyan-500">soy el sidebar</h1>
+    </aside>
 </template>
