@@ -1,5 +1,5 @@
 import type { Continent } from "./continent";
-interface BasicInfo{
+export interface BasicInfo{
     code:string,
     name:string
 }

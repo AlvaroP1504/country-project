@@ -29,8 +29,8 @@ const app = createApp({
 })
 
 app
-.use(router)
 .use(store)
+.use(router)
 .mount('#app')
 // createApp(App)
 // .use(router)
