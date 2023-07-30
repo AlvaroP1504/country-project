@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { GET_CONTINENTS, GET_COUNTRIES, GET_COUNTRY } from '../graphql/query';
+import { GET_CONTINENTS, GET_COUNTRIES } from '../graphql/query';
 import { useQuery } from '@vue/apollo-composable';
 import { watchEffect } from 'vue';
 import { Continent } from '../models/continent';
@@ -81,7 +81,7 @@ const store = createStore({
         })
     },
     listCountries({commit}){
-      const continentParams:string[] = this.getters["getContinentsParams"]
+      //const continentParams:string[] = this.getters["getContinentsParams"]
       const { result } = useQuery(GET_COUNTRIES);
         watchEffect(() => {
             console.log("soy paises" , result.value)
@@ -91,10 +91,6 @@ const store = createStore({
             }
         })
     },
-    getCountryDetail({commit}, _country_code){
-      const { result } = useQuery(GET_COUNTRY, {code:_country_code})
-        
-    }
   },
   getters:{
     getIsContinentReady(_state){
