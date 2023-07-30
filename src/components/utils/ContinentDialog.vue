@@ -12,7 +12,11 @@
                         <div class="text-center font-bold">{{ continent.name }}</div>
                     </button>
                 </div>
-                    <button class="bg-green-500 text-white py-3 px-6 rounded-full float-right" @click="store.commit('setMainContentRender',true)">Filtrar</button>
+                <div class="gap-4">
+                    <button class="bg-rose-700 text-white py-3 px-6 mx-2 rounded float-right" @click="store.state.isDialogOpen = false">Cerrar</button>
+                    <button class="bg-green-500 text-white py-3 px-6 rounded float-right" @click="store.commit('setMainContentRender',true)">Filtrar</button>
+
+                </div>
 
           
             </div>

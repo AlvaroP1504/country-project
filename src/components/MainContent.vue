@@ -42,23 +42,6 @@ watchEffect(() => {
 })
 
 
-
-// function openCountryDetail(code: string) {
-
-//     const RESULT = useQuery(GET_COUNTRY, {
-//         code: store.state.country_code
-//     })
-
-//     watchEffect(() => {
-//         if (result.value) {
-//             console.log("soy pais con detalle", result.value)
-//             store.commit('setCountryDetail', result.value.country)
-//             isCountryDetailOpen = true
-//         }
-//     })
-
-// }
-
 </script>
 <template>
     <main class="flex-1 overflow-auto p-4">
@@ -76,10 +59,7 @@ watchEffect(() => {
             <!-- Combo-box -->
             <div class="col-span-6 sm:col-span-2 md:col-span-2">
                 <label for="combo-box" class="mb-2 block font-bold text-gray-700">Filtra Continente</label>
-                <select id="combo-box"
-                    class="focus:shadow-outline block w-full appearance-none rounded border border-gray-400 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none">
-                    <!-- <option v-for="continent of continentsDialog" :key="continent.code">{{ continent.name }}</option> -->
-                </select>
+                <button class="bg-rose-700 text-white py-2 px-6 mx-2 rounded hover:text-green-300" @click="store.commit('setDialogOpen', true)">filtro</button>
             </div>
         </div>
 

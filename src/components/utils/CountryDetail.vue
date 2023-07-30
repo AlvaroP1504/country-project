@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // import {BasicInfo} from '../../models/country'
-// import { GET_COUNTRY } from '../../graphql/query';
-// import { useQuery } from '@vue/apollo-composable';
-// import { watchEffect } from 'vue';
+import { GET_COUNTRY } from '../../graphql/query';
+import { useQuery } from '@vue/apollo-composable';
+import { watchEffect } from 'vue';
 import store from '../../store';
 // const props = defineProps({
 //     country: String,
@@ -15,31 +15,37 @@ import store from '../../store';
 //     region: Array<BasicInfo>,
 // })
 
-// const usequery = () =>{
-//     return useQuery(GET_COUNTRY,
-//     {code : store.state.country_code}
-//     )
-// }
+const usequery = () =>{
+    return useQuery(GET_COUNTRY,
+    {code : store.state.country_code}
+    )
+}
 
-// let resp = usequery()
+let resp = usequery()
 
 
-// watchEffect(()=>{
-//     if(store.state.country_code){
-//         // resp = usequery()
-//         console.log("no estoy vacio")
-//         store.commit('setCountryDetailOpen',true)
+watchEffect(()=>{
+    if(store.state.country_code){
+        // resp = usequery()
+        console.log("no estoy vacio")
+        store.commit('setCountryDetailOpen',true)
 
-//     }
-//     if(resp.result.value){
-//         console.log("soy pais con detalle", resp.result.value)
-//         store.commit('setCountryDetail', resp.result.value.country)
-//         console.log("soy pais con detalle", store.state.country_detail)
-//     }
-// })
+    }
+    if(resp.result.value){
+        console.log("soy pais con detalle", resp.result.value)
+        store.commit('setCountryDetail', resp.result.value.country)
+        console.log("soy pais con detalle", store.state.country_detail)
+    }
+})
 </script>
 <template>
-    <div class="col-span-6 sm:col-span-2 md:col-span-2">
+    <!-- dialogo -->
+    <div class="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center min-h-screen">
+            <div
+                :class="['bg-white rounded p-4 transform transition-all duration-300', true]">
+
+                
+                <div class="col-span-6 sm:col-span-2 md:col-span-2">
                     <div class="mb-4 overflow-hidden rounded bg-neutral-100 shadow-lg">
                         <img class="mb-4 w-full object-cover" :src="'https://flagcdn.com/' + store.state.country_detail.code.toLocaleLowerCase()+ '.svg'" alt="Cityscape" />
                         <div class="px-6 py-4">
@@ -64,4 +70,9 @@ import store from '../../store';
                     </div>
                 </div>
             </div>
+          
+            </div>
+    </div>
+    
+    
 </template>
